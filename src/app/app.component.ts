@@ -1,5 +1,5 @@
 //app.component.ts
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
@@ -16,6 +16,14 @@ export class AppComponent {
   confirmPassword = signal<string>('');
   inputType = computed(() => this.isVisible() ? 'text' : 'password'); // computed is read-only which has only single job to read the signals
   passwordsDoNotMatch = computed(() => this.password() && this.confirmPassword() && this.password() !== this.confirmPassword())
+  constructor() {
+    effect(() => {
+      console.log('Signal is been modified -', this.isVisible());
+    });
+  }
+  ngOnInit(): void {
+    console.log("ngOnInit triggered !!!");
+  }
   toggleVisibility() {
     // some logic to toggle
     this.isVisible.update((value) => !value);
