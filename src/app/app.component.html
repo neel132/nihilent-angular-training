@@ -1,8 +1,12 @@
+<!-- app.component.html -->
 <div class="container">
-  <input [type]="inputType()" placeholder="Enter password" />
+  <input [type]="inputType()" [value]="password()" placeholder="Enter password" (input)="onChangePassword($event)" />
+  <br />
+  <input [type]="inputType()" [value]="confirmPassword()" placeholder="Confirm Password" (input)="onChangeConfirmPassword($event)"/>
   <br />
   <br />
   <button (click)="toggleVisibility()">
     {{isVisible() ? 'Hide' : 'Show'}} Password
   </button>
+  <p>{{ passwordsDoNotMatch() ? 'Passwords do not match' : 'Password matches' }}</p>
 </div>

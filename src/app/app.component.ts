@@ -1,3 +1,4 @@
+//app.component.ts
 import { Component, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
@@ -11,9 +12,21 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   isVisible = signal<boolean>(false);
+  password = signal<string>('');
+  confirmPassword = signal<string>('');
   inputType = computed(() => this.isVisible() ? 'text' : 'password'); // computed is read-only which has only single job to read the signals
+  passwordsDoNotMatch = computed(() => this.password() && this.confirmPassword() && this.password() !== this.confirmPassword())
   toggleVisibility() {
     // some logic to toggle
     this.isVisible.update((value) => !value);
   }
+  onChangePassword(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.password.set(input.value);
+  }
+  onChangeConfirmPassword(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.confirmPassword.set(input.value);
+  }
+  
 }
