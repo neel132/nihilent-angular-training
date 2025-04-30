@@ -1,7 +1,8 @@
-<div class="counter">
-  <h1>{{ title }}</h1>
-  <h2>{{ count() }}</h2>
-  <button (click)="increment()">Increment</button>
-  <button (click)="decrement()">Decrement</button>
-  <button (click)="reset()">Reset</button>
+<div class="container">
+  <input [type]="inputType()" placeholder="Enter password" />
+  <br />
+  <br />
+  <button (click)="toggleVisibility()">
+    {{isVisible() ? 'Hide' : 'Show'}} Password
+  </button>
 </div>

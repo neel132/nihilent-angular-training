@@ -1,8 +1,9 @@
-.counter {
+.container {
   text-align: center;
   margin-top: 2rem;
 }
 
-button {
-  margin: 0 0.5rem;
+input {
+  padding: 0.5rem;
+  width: 200px;
 }
