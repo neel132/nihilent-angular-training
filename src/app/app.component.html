@@ -18,4 +18,9 @@
       {{user.name}}
     </li>
   </ul>
+  <div [ngSwitch]="status()">
+    <p *ngSwitchCase="true">User is online</p>
+    <p *ngSwitchCase="false">User is offline</p>
+    <p *ngSwitchDefault="">Status unknown</p>
+  </div>
 </div>

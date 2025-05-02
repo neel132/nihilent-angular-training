@@ -22,6 +22,7 @@ export class AppComponent {
       name: 'Test',
     }
   ];
+  status = signal<boolean>(true);
   isVisible = signal<boolean>(false);
   password = signal<string>('');
   confirmPassword = signal<string>('');
