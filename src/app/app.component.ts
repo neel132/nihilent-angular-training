@@ -2,11 +2,12 @@
 import { Component, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { UnlessDirective } from './directives/unless.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, UnlessDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -22,7 +23,7 @@ export class AppComponent {
       name: 'Test',
     }
   ];
-  status = signal<boolean>(true);
+  status = signal<boolean>(false);
   isVisible = signal<boolean>(false);
   password = signal<string>('');
   confirmPassword = signal<string>('');

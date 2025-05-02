@@ -23,4 +23,5 @@
     <p *ngSwitchCase="false">User is offline</p>
     <p *ngSwitchDefault="">Status unknown</p>
   </div>
+  <p *appUnless="status()">You are not online!</p>
 </div>
