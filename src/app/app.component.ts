@@ -3,11 +3,12 @@ import { Component, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { UnlessDirective } from './directives/unless.directive';
+import { HighlightDirective } from './directives/appHighlight.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, UnlessDirective],
+  imports: [CommonModule, RouterOutlet, UnlessDirective, HighlightDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
