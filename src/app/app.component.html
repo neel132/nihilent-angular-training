@@ -12,4 +12,10 @@
   <ng-template #passwordMatch>
     <p>Please add password and confirm password to match !</p>
   </ng-template>
+
+  <ul>
+    <li *ngFor="let user of users">
+      {{user.name}}
+    </li>
+  </ul>
 </div>

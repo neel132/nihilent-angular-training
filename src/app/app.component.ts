@@ -11,6 +11,17 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  users = [
+    {
+      name: 'Alice',
+    },
+    {
+      name: 'John',
+    },
+    {
+      name: 'Test',
+    }
+  ];
   isVisible = signal<boolean>(false);
   password = signal<string>('');
   confirmPassword = signal<string>('');
