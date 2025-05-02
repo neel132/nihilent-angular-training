@@ -8,5 +8,5 @@
   <button (click)="toggleVisibility()">
     {{isVisible() ? 'Hide' : 'Show'}} Password
   </button>
-  <p>{{ passwordsDoNotMatch() ? 'Passwords do not match' : 'Password matches' }}</p>
+  <p *ngIf="password() !=='' && confirmPassword() !== ''">{{ passwordsDoNotMatch() ? 'Passwords do not match' : 'Password matches' }}</p>
 </div>
