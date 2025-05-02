@@ -28,4 +28,10 @@
   <p appHighlight="lightblue">
     Hover over this paragraph to see the default yellow background
   </p>
+  <br />
+  <h2>Pipes Example</h2>
+  <p>{{"Hello World!" | uppercase}}</p>
+  <p>{{"Hello World!" | lowercase}}</p>
+  <p>{{123.456 | currency:'INR': 'symbol' : '1.2-2'}}</p>
+  <p>{{ today | date: 'yyyy-MM-dd' }}</p>
 </div>

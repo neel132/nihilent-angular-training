@@ -24,6 +24,7 @@ export class AppComponent {
       name: 'Test',
     }
   ];
+  today = new Date();
   status = signal<boolean>(false);
   isVisible = signal<boolean>(false);
   password = signal<string>('');
