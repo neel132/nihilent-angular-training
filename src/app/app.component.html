@@ -8,5 +8,8 @@
   <button (click)="toggleVisibility()">
     {{isVisible() ? 'Hide' : 'Show'}} Password
   </button>
-  <p *ngIf="password() !=='' && confirmPassword() !== ''">{{ passwordsDoNotMatch() ? 'Passwords do not match' : 'Password matches' }}</p>
+  <p *ngIf="password() !=='' && confirmPassword() !== ''; else passwordMatch">{{ passwordsDoNotMatch() ? 'Passwords do not match' : 'Password matches' }}</p>
+  <ng-template #passwordMatch>
+    <p>Please add password and confirm password to match !</p>
+  </ng-template>
 </div>
