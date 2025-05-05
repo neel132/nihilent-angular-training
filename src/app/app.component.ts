@@ -15,7 +15,7 @@ import { User, UserService } from './services/user.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  private logger = inject(LoggerService);
+  private logger = inject(LoggerService); // Dependency injection after Angular 14+
   private userService = inject(UserService);
   users: User[] = [];
   today = new Date();

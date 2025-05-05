@@ -7,7 +7,7 @@ export interface User {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // Singleton service
 })
 
 export class UserService {
