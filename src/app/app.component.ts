@@ -1,9 +1,10 @@
 //app.component.ts
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { UnlessDirective } from './directives/unless.directive';
 import { HighlightDirective } from './directives/appHighlight.directive';
+import { LoggerService } from './services/logger.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { HighlightDirective } from './directives/appHighlight.directive';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  private logger = inject(LoggerService);
   users = [
     {
       name: 'Alice',
@@ -33,11 +35,11 @@ export class AppComponent {
   passwordsDoNotMatch = computed(() => this.password() && this.confirmPassword() && this.password() !== this.confirmPassword())
   constructor() {
     effect(() => {
-      console.log('Signal is been modified -', this.isVisible());
+      this.logger.log('Signal is been modified -');
     });
   }
   ngOnInit(): void {
-    console.log("ngOnInit triggered !!!");
+    this.logger.log("ngOnInit triggered !!!");
   }
   toggleVisibility() {
     // some logic to toggle
