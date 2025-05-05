@@ -39,6 +39,11 @@ export class AppComponent {
     this.users = this.userService.getUser();
   }
 
+  remove(id: number) {
+    this.userService.removeUser(id);
+    this.loadUsers();
+  }
+
   toggleVisibility() {
     // some logic to toggle
     this.isVisible.update((value) => !value);

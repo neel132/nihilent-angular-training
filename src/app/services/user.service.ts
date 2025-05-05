@@ -34,4 +34,7 @@ export class UserService {
     return [...this.users];
   }
 
+  removeUser(id: number): void {
+    this.users = this.users.filter(user => user.id !== id);
+  }
 }

@@ -16,6 +16,7 @@
   <ul>
     <li *ngFor="let user of users">
       {{user.name}} ({{user.email}})
+      <button (click)="remove(user.id)">X</button>
     </li>
   </ul>
   <div [ngSwitch]="status()">
