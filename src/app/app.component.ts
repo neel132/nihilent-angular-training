@@ -5,6 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { UnlessDirective } from './directives/unless.directive';
 import { HighlightDirective } from './directives/appHighlight.directive';
 import { LoggerService } from './services/logger.service';
+import { User, UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -15,17 +16,8 @@ import { LoggerService } from './services/logger.service';
 })
 export class AppComponent {
   private logger = inject(LoggerService);
-  users = [
-    {
-      name: 'Alice',
-    },
-    {
-      name: 'John',
-    },
-    {
-      name: 'Test',
-    }
-  ];
+  private userService = inject(UserService);
+  users: User[] = [];
   today = new Date();
   status = signal<boolean>(false);
   isVisible = signal<boolean>(false);
@@ -40,7 +32,13 @@ export class AppComponent {
   }
   ngOnInit(): void {
     this.logger.log("ngOnInit triggered !!!");
+    this.loadUsers();
   }
+
+  loadUsers() {
+    this.users = this.userService.getUser();
+  }
+
   toggleVisibility() {
     // some logic to toggle
     this.isVisible.update((value) => !value);
