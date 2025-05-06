@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
-
+  private route = inject(ActivatedRoute);
+  ngOnInit() {
+    console.log(Number(this.route.snapshot.paramMap.get('id')));
+  }
 }
