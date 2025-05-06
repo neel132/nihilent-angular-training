@@ -1,1 +1,17 @@
-<p>home works!</p>
+<h2> Login </h2>
+<form (ngSubmit)="onLogin()">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" required name="username" [ngModel]="username()" (ngModelChange)="username.set($event)" id="username" />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" required name="password" [ngModel]="password()" (ngModelChange)="password.set($event)" id="password" />
+  </div>
+  <div>
+    <button type="submit">Login</button>
+  </div>
+  <div *ngIf="errorMessage()" style="color: red;">
+    {{errorMessage()}}
+  </div>
+</form>
