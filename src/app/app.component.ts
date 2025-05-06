@@ -1,7 +1,7 @@
 //app.component.ts
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { UnlessDirective } from './directives/unless.directive';
 import { HighlightDirective } from './directives/appHighlight.directive';
 import { LoggerService } from './services/logger.service';
@@ -10,7 +10,7 @@ import { User, UserService } from './services/user.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, UnlessDirective, HighlightDirective],
+  imports: [CommonModule, RouterOutlet, RouterModule, UnlessDirective, HighlightDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
