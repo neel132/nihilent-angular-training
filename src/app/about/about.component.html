@@ -1,1 +1,7 @@
-<p>This is the product detail page</p>
+<form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+  <input name="name" required ngModel />
+  <div *ngIf="form.control['name']?.invalid && form.control['name']?.touched">
+    Name is required.
+  </div>
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
