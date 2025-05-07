@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -5,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })

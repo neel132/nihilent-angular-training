@@ -1,6 +1,6 @@
 <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
   <input name="name" required ngModel />
-  <div *ngIf="form.control['name']?.invalid && form.control['name']?.touched">
+  <div *ngIf="form.controls['name']?.invalid && form.controls['name']?.touched">
     Name is required.
   </div>
   <button type="submit" [disabled]="form.invalid">Submit</button>
