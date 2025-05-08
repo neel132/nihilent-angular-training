@@ -1,40 +1,16 @@
-import { Injectable } from '@angular/core';
-
-export interface User {
-  id: number;
-  name: string;
-  email: string;
-}
-
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from '../models/user.model';
 @Injectable({
   providedIn: 'root' // Singleton service
 })
 
 export class UserService {
-  private users: User[] = [
-    {
-      id: 1,
-      name: 'Alice',
-      email: 'alice@gmail.com',
-    },
-    {
-      id: 2,
-      name: 'John',
-      email: 'john@gmail.com'
-    },
-    {
-      id: 3,
-      name: 'Test',
-      email: 'test@gmail.com',
-    },
-  ];
-  constructor() { }
+  private http = inject(HttpClient);
+  private readonly apiUrl = "https://jsonplaceholder.typicode.com/users";
 
-  getUser(): User[] {
-    return [...this.users];
-  }
-
-  removeUser(id: number): void {
-    this.users = this.users.filter(user => user.id !== id);
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrl);
   }
 }
