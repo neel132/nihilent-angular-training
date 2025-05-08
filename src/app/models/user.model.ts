@@ -24,3 +24,10 @@ export interface User {
   website: string;
   company: UserCompany;
 }
+
+export interface Post {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+}
