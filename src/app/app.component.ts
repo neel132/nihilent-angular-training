@@ -5,7 +5,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { UnlessDirective } from './directives/unless.directive';
 import { HighlightDirective } from './directives/appHighlight.directive';
 import { LoggerService } from './services/logger.service';
-import { User, UserService } from './services/user.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +16,8 @@ import { User, UserService } from './services/user.service';
 })
 export class AppComponent {
   private logger = inject(LoggerService); // Dependency injection after Angular 14+
-  private userService = inject(UserService);
-  users: User[] = [];
+  // private userService = inject(UserService);
+  // users: User[] = [];
   today = new Date();
   status = signal<boolean>(false);
   isVisible = signal<boolean>(false);
@@ -36,11 +36,11 @@ export class AppComponent {
   }
 
   loadUsers() {
-    this.users = this.userService.getUser();
+    // this.users = this.userService.getUser();
   }
 
   remove(id: number) {
-    this.userService.removeUser(id);
+    // this.userService.removeUser(id);
     this.loadUsers();
   }
 
